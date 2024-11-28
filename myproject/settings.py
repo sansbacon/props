@@ -128,3 +128,31 @@ LOGIN_URL = 'accounts/login/'
 # CSRF Cookie settings (for local development)
 CSRF_COOKIE_SECURE = False  # If you're running locally and using HTTP
 CSRF_COOKIE_HTTPONLY = True
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+        'file': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': BASE_DIR / 'django_errors.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'allauth': {
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',  # Capture allauth-related logs
+            'propagate': True,
+        },
+    },
+}
