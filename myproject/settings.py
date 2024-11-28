@@ -104,6 +104,6 @@ LOGOUT_REDIRECT_URL = '/'  # Redirect after logout
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 # Use email as the username
-ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False  # Don't require a username, just email
+ACCOUNT_AUTHENTICATION_METHOD = 'email'  # Use email as the authentication method

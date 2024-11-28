@@ -1,0 +1,10 @@
+<!-- templates/account/login.html -->
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h2>Login</h2>
+  <!-- Display Google Login button -->
+  <a href="{% provider_login_url 'google' %}">
+    <button>Login with Google</button>
+  </a>
+{% endblock %}
