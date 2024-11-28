@@ -99,3 +99,11 @@ AUTHENTICATION_BACKENDS = [
 
 LOGIN_REDIRECT_URL = '/'  # Redirect after successful login
 LOGOUT_REDIRECT_URL = '/'  # Redirect after logout
+
+# Disable email verification
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+# Use email as the username
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
