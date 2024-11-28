@@ -1,9 +1,12 @@
 {% extends "base_generic.html" %}
-{% load socialaccount %} <!-- Load the necessary tag library -->
+{% load socialaccount %}
+
+{% block title %}
+Login
+{% endblock %}
 
 {% block content %}
   <h2>Login</h2>
-  <!-- Display Google Login button -->
   <a href="{% provider_login_url 'google' %}">
     <button>Login with Google</button>
   </a>
