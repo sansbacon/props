@@ -36,7 +36,6 @@ MIDDLEWARE = [
     'allauth.account.middleware.AccountMiddleware',  # Add this line
 ]
 
-
 ROOT_URLCONF = 'myproject.urls'
 
 TEMPLATES = [
@@ -90,8 +89,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
 
+# Ensure this matches the site in your Django admin
 SITE_ID = 1
 
+# Authentication settings
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',  # Default
     'allauth.account.auth_backends.AuthenticationBackend',  # Allauth
@@ -107,3 +108,19 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False  # Don't require a username, just email
 ACCOUNT_AUTHENTICATION_METHOD = 'email'  # Use email as the authentication method
+
+# Google Social Account Settings
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': ['profile', 'email'],
+        'AUTH_PARAMS': {'access_type': 'online'},
+        'OAUTH_PKCE_ENABLED': True,
+    }
+}
+
+# Optional settings to improve UX for social login
+SOCIALACCOUNT_LOGIN_ON_GET = True  # Automatically log the user in after authentication
+SOCIALACCOUNT_QUERY_EMAIL = True  # Query for email upon social login
+
+# Add this to ensure the 'login' URL works correctly
+LOGIN_URL = 'accounts/login/'
