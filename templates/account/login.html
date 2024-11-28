@@ -7,7 +7,11 @@ Login
 
 {% block content %}
   <h2>Login</h2>
-  <a href="{% provider_login_url 'google' %}">
-    <button>Login with Google</button>
-  </a>
+  {% if 'google' in socialaccount.providers %}
+    <a href="{% provider_login_url 'google' %}">
+      <button>Login with Google</button>
+    </a>
+  {% else %}
+    <p>Google login is not configured. Please contact support.</p>
+  {% endif %}
 {% endblock %}
