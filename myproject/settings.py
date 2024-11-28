@@ -124,3 +124,7 @@ SOCIALACCOUNT_QUERY_EMAIL = True  # Query for email upon social login
 
 # Add this to ensure the 'login' URL works correctly
 LOGIN_URL = 'accounts/login/'
+
+# CSRF Cookie settings (for local development)
+CSRF_COOKIE_SECURE = False  # If you're running locally and using HTTP
+CSRF_COOKIE_HTTPONLY = True
